@@ -41,7 +41,7 @@ export function TechSupportSection() {
             <div className="pt-2">
               <Link
                 href="/custom-request"
-                className="inline-flex items-center gap-2 border border-orvix-border bg-orvix-panel px-5 py-3 font-mono text-xs uppercase tracking-wider text-white hover:border-orvix-crimson-bright hover:bg-orvix-crimson/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-orvix-border bg-orvix-panel px-5 py-3 font-mono text-xs uppercase tracking-wider text-zinc-800 hover:border-orvix-crimson-bright hover:bg-orvix-crimson/10 transition-colors"
               >
                 <span>Consult with an Engineer</span>
                 <ArrowRight className="h-4 w-4 text-orvix-crimson-bright" />

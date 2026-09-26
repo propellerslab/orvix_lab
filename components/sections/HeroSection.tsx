@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, ChevronRight, Terminal } from 'lucide-react';
+import { ArrowUpRight, ChevronRight, Terminal, MapPin } from 'lucide-react';
 import { HeroCanvasWrapper } from '@/components/3d/HeroCanvasWrapper';
 import { industrialFadeUp, staggerContainer } from '@/lib/motion';
 
@@ -17,12 +17,12 @@ export function HeroSection() {
       </div>
 
       {/* Subtle Studio Vignette */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#FAFAFA]/95 via-[#FAFAFA]/75 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#FAFAFA]/95 via-[#FAFAFA]/80 to-transparent" />
 
       {/* Interactive HUD Content */}
       <div className="relative z-20 mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col justify-between px-6 py-12 lg:px-8">
 
-        {/* Top Telemetry Row */}
+        {/* Top Telemetry Row with Local Provenance */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -32,14 +32,15 @@ export function HeroSection() {
           <div className="flex items-center gap-3">
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E20000] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E20000]"></span>
             </span>
-            <span className="text-[#002339] font-bold">SYSTEM_ONLINE: ORVIX_LAB_V2.6</span>
           </div>
-          <div className="hidden sm:flex items-center gap-6 text-zinc-500 font-medium">
-            <span>TOLERANCE: &plusmn;0.04 MM</span>
-            <span>SPEC: INDUSTRIAL GRADE</span>
-            <span>DISPATCH: GLOBAL COURIER</span>
+
+          <div className="hidden sm:flex items-center gap-6 text-zinc-600 font-semibold">
+            <span className="flex items-center gap-1.5">
+              <MapPin className="h-3 w-3 text-[#E20000]" />
+              <span>DISPATCH: KATHMANDU &amp; ALL-NEPAL COURIER</span>
+            </span>
+
           </div>
         </motion.div>
 
@@ -56,7 +57,7 @@ export function HeroSection() {
           >
             <Terminal className="h-3.5 w-3.5 text-[#E20000]" />
             <span className="font-mono text-[11px] uppercase tracking-widest text-[#002339] font-semibold">
-              PHYSICAL MANUFACTURING &bull; DIGITAL HARDWARE
+              ADVANCED 3D PRINTING &bull; B2B FILAMENT SUPPLY IN NEPAL
             </span>
           </motion.div>
 
@@ -71,8 +72,8 @@ export function HeroSection() {
             variants={industrialFadeUp}
             className="max-w-2xl font-serif text-base text-zinc-600 sm:text-lg leading-relaxed"
           >
-            Orvix Lab bridges the gap between digital problem-solving and physical
-            manufacturing by engineering custom 3D-printed products, high-grade filaments, and custom technical hardware.
+            Orvix Lab bridges the gap between digital problem-solving and physical manufacturing.
+            We engineer custom 3D-printed parts for students and architects, supply high-grade filaments across Nepal, and develop proprietary hardware.
           </motion.p>
 
           {/* Action Triggers */}
@@ -89,10 +90,10 @@ export function HeroSection() {
             </Link>
 
             <Link
-              href="#flagship"
+              href="/filaments"
               className="flex items-center gap-2 border border-[#002339] bg-white px-6 py-3.5 font-mono text-xs uppercase tracking-wider text-[#002339] transition-all hover:bg-[#002339] hover:text-white"
             >
-              <span>Classified Flagship</span>
+              <span>B2B Filament Supply</span>
               <ChevronRight className="h-4 w-4 text-[#E20000]" />
             </Link>
           </motion.div>
@@ -106,20 +107,20 @@ export function HeroSection() {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-zinc-200/80 pt-6 font-mono text-xs"
         >
           <div>
-            <p className="text-[10px] text-zinc-500 uppercase tracking-widest">LAYER RESOLUTION</p>
-            <p className="text-sm font-bold text-[#242424]">Up to 12 &mu;m</p>
+            <p className="text-[10px] text-zinc-400 uppercase tracking-widest">RAPID PROTOTYPING</p>
+            <p className="text-sm font-bold text-[#242424]">24-48h Valley Turnaround</p>
           </div>
           <div>
-            <p className="text-[10px] text-zinc-500 uppercase tracking-widest">RAPID TOOLING</p>
-            <p className="text-sm font-bold text-[#242424]">48h Turnaround</p>
+            <p className="text-[10px] text-zinc-400 uppercase tracking-widest">TOPOGRAPHIC &amp; ARCH</p>
+            <p className="text-sm font-bold text-[#242424]">Sub-Millimeter Contours</p>
           </div>
           <div>
-            <p className="text-[10px] text-zinc-500 uppercase tracking-widest">B2B FILAMENTS</p>
-            <p className="text-sm font-bold text-[#242424]">Carbon, ASA, TPU</p>
+            <p className="text-[10px] text-zinc-400 uppercase tracking-widest">B2B DEPOT</p>
+            <p className="text-sm font-bold text-[#242424]">NCM, Pathao &amp; Courier Freight</p>
           </div>
           <div>
-            <p className="text-[10px] text-zinc-500 uppercase tracking-widest">ARCHITECTURE</p>
-            <p className="text-sm font-bold text-[#E20000]">Proprietary In-House</p>
+            <p className="text-[10px] text-zinc-400 uppercase tracking-widest">ACADEMIC ALLIANCE</p>
+            <p className="text-sm font-bold text-[#E20000]">All Support</p>
           </div>
         </motion.div>
 

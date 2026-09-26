@@ -83,7 +83,7 @@ export default function ProductsPage() {
       <div className="border-b border-orvix-border pb-8">
         <div className="flex items-center gap-2 font-mono text-xs text-orvix-crimson-bright uppercase tracking-widest">
           <Box className="h-4 w-4" />
-          <span>// OUR PORTFOLIO</span>
+          <span>// MADE IN NEPAL</span>
         </div>
         <h1 className="mt-3 font-serif text-4xl font-bold tracking-tight text-white sm:text-6xl">
           Custom 3D Printed Products

@@ -46,7 +46,7 @@ function LoginContent() {
               // SECURE ACCESS GATEWAY
             </span>
             <h1 className="font-serif text-3xl font-bold tracking-tight text-white">
-              Authenticate Terminal
+              Welcome to the Orvix Lab
             </h1>
             <p className="font-serif text-xs text-zinc-400 leading-relaxed">
               Sign in with your verified Google identity to review production orders, submit technical specifications, or access client portals.
@@ -68,7 +68,7 @@ function LoginContent() {
             <button
               onClick={handleLogin}
               disabled={submitting}
-              className="group relative flex w-full items-center justify-between border border-orvix-border-crimson bg-orvix-panel px-5 py-3.5 font-mono text-xs uppercase tracking-wider text-white transition-all hover:border-orvix-crimson-bright hover:bg-orvix-crimson/20 disabled:opacity-50"
+              className="group relative flex w-full items-center justify-between border border-orvix-border-crimson bg-orvix-panel px-5 py-3.5 font-mono text-xs uppercase tracking-wider text-red-600 font-semibold transition-all hover:border-orvix-crimson-bright hover:bg-orvix-crimson/20 disabled:opacity-50"
             >
               <div className="flex items-center gap-3">
                 {/* Minimal Google Icon */}

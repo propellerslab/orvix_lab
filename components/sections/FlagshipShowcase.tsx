@@ -43,15 +43,15 @@ export function FlagshipShowcase() {
         >
           <div className="inline-flex items-center gap-2 border border-orvix-border bg-orvix-panel px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-zinc-300">
             <Lock className="h-3 w-3 text-orvix-crimson-bright" />
-            <span>Proprietary Hardware &bull; Launching Soon</span>
+            <span>Launching Soon</span>
           </div>
 
           <h2 className="font-serif text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            The next generation of in-house manufacturing hardware.
+            Coming Soon.....
           </h2>
 
           <p className="max-w-3xl font-serif text-base text-zinc-300 leading-relaxed sm:text-lg">
-            We are finalizing our proprietary flagship device—a convergence of advanced kinematics, closed-loop thermal regulation, and custom firmware built from the ground up inside our labs.
+            We are working on our own products, currently on research phase. First beta version to be launch within 2 months.
           </p>
 
           {/* Waitlist Access Capture */}
@@ -73,7 +73,7 @@ export function FlagshipShowcase() {
                 />
                 <button
                   type="submit"
-                  className="flex items-center justify-center gap-2 border border-orvix-crimson-bright bg-orvix-crimson px-5 py-3 font-mono text-xs uppercase tracking-wider text-white hover:bg-orvix-crimson-bright transition-colors shrink-0"
+                  className="flex items-center justify-center gap-2 border border-orvix-crimson-bright bg-orvix-crimson px-5 py-3 font-mono text-xs uppercase tracking-wider text-zinc-800 font-bold hover:bg-orvix-crimson-bright transition-colors shrink-0"
                 >
                   <BellRing className="h-4 w-4" />
                   <span>Request Briefing</span>

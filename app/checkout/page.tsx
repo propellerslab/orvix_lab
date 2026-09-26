@@ -255,13 +255,13 @@ export default function CheckoutPage() {
                             <p className="font-serif text-base font-semibold text-white">
                               {item.title}
                             </p>
-                            <p className="font-mono text-[10px] text-zinc-500">
+                            <p className="font-mono text-[10px] text-white">
                               SKU: {item.sku} &bull; Type: {item.itemType.toUpperCase()}
                             </p>
                             {item.metadata && (
                               <div className="mt-2 flex flex-wrap gap-1">
                                 {Object.entries(item.metadata).map(([k, v]) => (
-                                  <span key={k} className="border border-orvix-border bg-black/60 px-2 py-0.5 font-mono text-[9px] text-zinc-400">
+                                  <span key={k} className="border border-orvix-border bg-white/60 px-2 py-0.5 font-mono text-[9px] text-white">
                                     {k}: {String(v)}
                                   </span>
                                 ))}
@@ -271,12 +271,12 @@ export default function CheckoutPage() {
 
                           <div className="flex flex-col items-end gap-2">
                             <span className="font-mono text-sm font-bold text-white">
-                              ${(item.unitPrice * item.quantity).toFixed(2)}
+                              Rs.{(item.unitPrice * item.quantity).toFixed(2)}
                             </span>
-                            <div className="flex items-center gap-2 border border-orvix-border bg-black px-2 py-1 font-mono text-xs">
-                              <button onClick={() => updateQuantity(item.id, -1)} className="text-zinc-500 hover:text-white px-1">-</button>
+                            <div className="flex items-center gap-2 border border-orvix-border bg-white px-2 py-1 font-mono text-xs">
+                              <button onClick={() => updateQuantity(item.id, -1)} className="text-black hover:text-zinc-600 px-1">-</button>
                               <span>{item.quantity}</span>
-                              <button onClick={() => updateQuantity(item.id, 1)} className="text-zinc-500 hover:text-white px-1">+</button>
+                              <button onClick={() => updateQuantity(item.id, 1)} className="text-black hover:text-zinc-600 px-1">+</button>
                             </div>
                             <button
                               onClick={() => removeFromCart(item.id)}
@@ -547,7 +547,7 @@ export default function CheckoutPage() {
               <div className="space-y-2 border-b border-orvix-border/60 pb-4 font-mono text-xs">
                 <div className="flex justify-between text-zinc-400">
                   <span>Subtotal:</span>
-                  <span className="text-white">${cartTotal.toFixed(2)}</span>
+                  <span className="text-white">Rs.{cartTotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-zinc-400">
                   <span>Shipping Fee:</span>
@@ -564,7 +564,7 @@ export default function CheckoutPage() {
                 <span className="text-orvix-crimson-bright">{cartTotal.toFixed(2)} NPR</span>
               </div>
 
-              <div className="border border-orvix-border/40 bg-black/40 p-3 font-mono text-[10px] text-zinc-500 leading-normal">
+              <div className="border border-orvix-border/40 bg-black/40 p-3 font-mono text-[10px] text-zinc-400 leading-normal">
                 Direct invoicing and B2B wire payment instructions provided upon WhatsApp dispatch confirmation.
               </div>
             </div>

@@ -1,49 +1,144 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Orvix Brand Identity Tokens */
+  --color-orvix-red: #E20000;
+  --color-orvix-red-hover: #C50000;
+  --color-orvix-navy: #002339;
+  --color-orvix-navy-light: #0A3D5E;
+  --color-orvix-charcoal: #242424;
+  --color-orvix-slate: #4A5568;
+
+  /* Surfaces & Borders */
+  --color-orvix-white: #FFFFFF;
+  --color-orvix-light: #242424;      /* Mapped to charcoal for light theme */
+  --color-orvix-surface: #F8F9FA;
+  --color-orvix-border: #E2E8F0;
+  --color-orvix-border-dark: #CBD5E1;
+
+  /* Compatibility Tokens */
+  --color-orvix-black: #FFFFFF;
+  --color-orvix-dark: #FFFFFF;
+  --color-orvix-panel: #F8F9FA;
+  --color-orvix-crimson: #E20000;
+  --color-orvix-crimson-bright: #E20000;
+  --color-orvix-border-crimson: #E2000030;
+  --color-orvix-muted: #64748B;
+
+  --font-serif: var(--font-pt-serif), serif;
+  --font-mono: var(--font-libertinus-mono), monospace;
+
+  --shadow-red-glow: 0 4px 20px -2px rgba(226, 0, 0, 0.25);
+  --shadow-navy-glow: 0 4px 20px -2px rgba(0, 35, 57, 0.15);
+}
 
 :root {
-  --background: #000000;
-  --foreground: #F4F4F5;
+  --background: #FAFAFA;
+  --foreground: #242424;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-pt-serif), serif;
+  font-family: var(--font-serif);
   overflow-x: hidden;
-  selection-background-color: #830000;
-  selection-color: #ffffff;
 }
 
 ::selection {
-  background: #830000;
-  color: #ffffff;
+  background: #E20000;
+  color: #FFFFFF;
 }
 
-/* Custom Technical Scrollbar */
+/* ==========================================================================
+   SMART LIGHT THEME TYPOGRAPHY ADAPTER
+   Turns text-white into crisp dark charcoal everywhere EXCEPT inside colored buttons & badges
+   ========================================================================== */
+
+/* 1. Base Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #242424;
+}
+
+p, span, div, label {
+  color: inherit;
+}
+
+/* 2. Invert 'text-white' to charcoal (#242424) EXCEPT on colored buttons/pills */
+.text-white:not(
+  button,
+  button *,
+  a[class*="bg-"],
+  a[class*="bg-"] *,
+  [class*="bg-orvix-red"],
+  [class*="bg-orvix-red"] *,
+  [class*="bg-orvix-navy"],
+  [class*="bg-orvix-navy"] *,
+  [class*="bg-[#E20000]"],
+  [class*="bg-[#E20000]"] *,
+  [class*="bg-[#C50000]"],
+  [class*="bg-[#C50000]"] *,
+  [class*="bg-[#002339]"],
+  [class*="bg-[#002339]"] *,
+  [class*="bg-emerald"],
+  [class*="bg-emerald"] *,
+  [class*="bg-red"],
+  [class*="bg-red"] *,
+  [class*="bg-black"],
+  [class*="bg-black"] *,
+  [class*="bg-zinc-900"],
+  [class*="bg-zinc-900"] *
+) {
+  color: #242424 !important;
+}
+
+/* 3. Make faint zinc descriptions and specs readable on white backgrounds */
+.text-zinc-300:not(button *, a[class*="bg-"] *),
+.text-zinc-400:not(button *, a[class*="bg-"] *) {
+  color: #4A5568 !important;
+}
+
+.text-zinc-500:not(button *, a[class*="bg-"] *) {
+  color: #64748B !important;
+}
+
+/* 4. Cards & Panels */
+.bg-orvix-dark,
+.bg-orvix-panel {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* 5. Inputs & Textareas */
+input, textarea, select {
+  color: #242424 !important;
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Precision Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #F1F4F8;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #262626;
-  border-radius: 0px;
+  background: #CBD5E1;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #BC0202;
+  background: #002339;
 }
 
-/* Technical Grid Overlay */
+/* Light Architectural Blueprint Grid */
 .tech-grid-bg {
-  background-size: 40px 40px;
+  background-color: #FAFAFA;
+  background-size: 36px 36px;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 35, 57, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 35, 57, 0.05) 1px, transparent 1px);
 }

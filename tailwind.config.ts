@@ -1,4 +1,6 @@
 // tailwind.config.ts
+
+
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -8,6 +10,7 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './lib/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}', // <--- THIS LINE IS CRITICAL
   ],
   theme: {
     extend: {
@@ -36,9 +39,6 @@ const config: Config = {
       backgroundImage: {
         'radial-gradient-dark': 'radial-gradient(circle at 50% 0%, #2A0505 0%, #000000 70%)',
         'grid-pattern': 'linear-gradient(to right, #1f1f1f 1px, transparent 1px), linear-gradient(to bottom, #1f1f1f 1px, transparent 1px)',
-      },
-      animation: {
-        'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },

@@ -13,7 +13,7 @@ export const ptSerif = PT_Serif({
 export const libertinusMono = localFont({
   src: [
     {
-      path: '../public/fonts/LibertinusMono-Regular.woff2',
+      path: '../public/fonts/LibertinusMono-Regular.ttf',
       weight: '400',
       style: 'normal',
     },

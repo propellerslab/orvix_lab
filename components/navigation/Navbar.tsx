@@ -4,8 +4,10 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Box, Layers, Cpu, ArrowUpRight } from 'lucide-react';
+import { Box, Layers, Cpu, ArrowUpRight, ShoppingBag } from 'lucide-react';
+import { useCart } from '@/context/cart-context';
 import { UserMenu } from './UserMenu';
+
 const NAV_ITEMS = [
   { label: 'Built Products', href: '/products', icon: Box },
   { label: 'Filaments [B2B]', href: '/filaments', icon: Layers },
@@ -14,30 +16,27 @@ const NAV_ITEMS = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const { itemCount, setIsCartOpen } = useCart();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-orvix-border bg-orvix-black/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-orvix-border bg-orvix-black/90 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
 
-        {/* Brand Core */}
+        {/* Brand */}
         <Link href="/" className="group flex items-center gap-3">
-          <div className="relative flex h-10 w-10 items-center justify-center border border-orvix-crimson bg-orvix-dark group-hover:border-orvix-crimson-bright transition-colors">
-            <span className="font-mono text-sm font-bold text-orvix-crimson-bright group-hover:text-white">
-              OX
-            </span>
-            <div className="absolute -bottom-1 -right-1 h-1.5 w-1.5 bg-orvix-crimson-bright" />
-          </div>
+          {/* Geometric Orvix Wordmark matching your logo */}
           <div className="flex flex-col">
-            <span className="font-serif text-lg font-bold tracking-wider text-orvix-light">
-              ORVIX LAB
-            </span>
-            <span className="font-mono text-[9px] uppercase tracking-widest text-orvix-muted">
-              Physical Systems &bull; 3D Dev
-            </span>
+            <div className="flex items-baseline tracking-tight font-bold font-mono text-2xl leading-none">
+              <span className="text-[#E20000]">ORVI</span>
+              <span className="text-orvix-navy">X</span>
+              <span className="ml-1 text-xs text-orvix-charcoal font-normal tracking-normal lowercase">lab</span>
+            </div>
+            {/* The structural horizontal line underneath */}
+            <div className="mt-1 h-[2.5px] w-full bg-orvix-navy" />
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_ITEMS.map((item) => {
             const isActive = pathname.startsWith(item.href);
@@ -49,7 +48,7 @@ export function Navbar() {
                 className="group relative flex items-center gap-2 py-2 font-mono text-xs uppercase tracking-wider text-orvix-muted hover:text-white transition-colors"
               >
                 <Icon className="h-3.5 w-3.5 text-orvix-crimson group-hover:text-orvix-crimson-bright" />
-                <span className={isActive ? 'text-white font-semibold' : ''}>{item.label}</span>
+                <span className={isActive ? 'text-orvix-crimson font-semibold' : ''}>{item.label}</span>
                 {isActive && (
                   <motion.div
                     layoutId="activeNavIndicator"
@@ -62,27 +61,35 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Flagship Notice & Action Button */}
-        <div className="flex items-center gap-5">
-          <div className="hidden lg:flex items-center gap-2 border border-orvix-border bg-orvix-dark px-3 py-1.5">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orvix-crimson-bright opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-orvix-crimson"></span>
-            </span>
-            <span className="font-mono text-[10px] tracking-wider text-zinc-400 uppercase">
-              Flagship: In Dev
-            </span>
-          </div>
+        {/* Actions (Cart, User, Quote) */}
+        <div className="flex items-center gap-4">
+          {/* Cart Trigger */}
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="relative flex items-center gap-2 border border-orvix-border bg-orvix-dark px-3 py-2 text-zinc-300 hover:border-orvix-crimson-bright hover:text-white transition-colors"
+            title="Open Cart"
+          >
+            <ShoppingBag className="h-4 w-4 text-orvix-crimson-bright" />
+            <span className="font-mono text-xs font-bold">{itemCount}</span>
+            {itemCount > 0 && (
+              <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orvix-crimson-bright opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-orvix-crimson-bright"></span>
+              </span>
+            )}
+          </button>
+
+          <UserMenu />
 
           <Link
             href="/custom-request"
-            className="flex items-center gap-2 border border-orvix-crimson bg-orvix-crimson/10 px-4 py-2 font-mono text-xs uppercase tracking-wider text-white transition-all hover:bg-orvix-crimson hover:shadow-crimson-glow"
+            className="hidden sm:flex items-center gap-2 border border-orvix-crimson bg-orvix-crimson/10 px-4 py-2 font-mono text-xs uppercase tracking-wider text-black font-semibold  hover:bg-orvix-crimson hover:shadow-crimson-glow transition-all"
           >
-            <span>Quote Project</span>
+            <span>Quote</span>
             <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
-          <UserMenu />
         </div>
+
       </div>
     </header>
   );

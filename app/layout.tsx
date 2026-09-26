@@ -5,6 +5,7 @@ import { Navbar } from '@/components/navigation/Navbar';
 import { PageTransition } from '@/components/providers/page-transition';
 import { AuthProvider } from '@/components/providers/auth-provider';
 import { CartProvider } from '@/context/cart-context';
+import { CartDrawer } from '@/components/cart/CartDrawer';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -19,14 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${ptSerif.variable} ${libertinusMono.variable} dark`}>
-      <body className="bg-orvix-black text-orvix-light font-serif antialiased min-h-screen flex flex-col tech-grid-bg">
+    <html lang="en" className={`${ptSerif.variable} ${libertinusMono.variable}`}>
+      <body className="bg-[#FAFAFA] text-[#242424] font-serif antialiased min-h-screen flex flex-col tech-grid-bg">
         <AuthProvider>
           <CartProvider>
             <Navbar />
+            <CartDrawer />
             <main className="flex-1">
               <PageTransition>{children}</PageTransition>
             </main>
+
           </CartProvider>
         </AuthProvider>
       </body>

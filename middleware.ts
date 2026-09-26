@@ -1,6 +1,6 @@
 // middleware.ts
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
-import { NextResponse, type NextRequest } from 'next/navigation';
+import { NextResponse, type NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next({
@@ -69,7 +69,11 @@ export async function middleware(request: NextRequest) {
   }
 
   // Protected Customer Routes
-  if (pathname.startsWith('/dashboard') || pathname.startsWith('/orders') || pathname.startsWith('/profile')) {
+  if (
+    pathname.startsWith('/dashboard') ||
+    pathname.startsWith('/orders') ||
+    pathname.startsWith('/profile')
+  ) {
     if (!user) {
       const redirectUrl = new URL('/auth/login', request.url);
       redirectUrl.searchParams.set('redirectTo', pathname);
@@ -77,7 +81,7 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // If authenticated user visits login page, route to dashboard or home
+  // If authenticated user visits login page, route to home
   if (pathname === '/auth/login' && user) {
     return NextResponse.redirect(new URL('/', request.url));
   }

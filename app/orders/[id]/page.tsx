@@ -60,7 +60,7 @@ export default async function OrderDetailPage({
           </div>
           <div className="font-mono text-right">
             <span className="text-[10px] text-zinc-500 uppercase block">Total Value</span>
-            <span className="text-xl font-bold text-white">Rs. {Number(order.total_amount).toFixed(2)} USD</span>
+            <span className="text-xl font-bold text-white">Rs.{Number(order.total_amount).toFixed(2)}</span>
           </div>
         </div>
 

@@ -83,13 +83,13 @@ export default function ProductsPage() {
       <div className="border-b border-orvix-border pb-8">
         <div className="flex items-center gap-2 font-mono text-xs text-orvix-crimson-bright uppercase tracking-widest">
           <Box className="h-4 w-4" />
-          <span>// PORTFOLIO & COMMERCIAL CATALOG</span>
+          <span>// OUR PORTFOLIO</span>
         </div>
         <h1 className="mt-3 font-serif text-4xl font-bold tracking-tight text-white sm:text-6xl">
-          Engineered Built Products
+          Custom 3D Printed Products
         </h1>
         <p className="mt-3 max-w-2xl font-serif text-sm text-zinc-400">
-          Field-ready devices, physical computing cases, and custom end-use assemblies manufactured inside our rapid-iteration facility.
+          High-quality, ready-to-use 3D prints and custom tech accessories designed to fit your exact needs.
         </p>
 
         {/* Filter tags */}
@@ -185,11 +185,11 @@ export default function ProductsPage() {
                 <div>
                   {discount > 0 && (
                     <span className="font-mono text-xs text-zinc-500 line-through mr-2">
-                      ${product.base_price.toFixed(2)}
+                      Rs.{product.base_price.toFixed(2)}
                     </span>
                   )}
                   <span className="font-mono text-lg font-bold text-white">
-                    ${discountedPrice.toFixed(2)}
+                    Rs.{discountedPrice.toFixed(2)}
                   </span>
                 </div>
 
@@ -206,7 +206,7 @@ export default function ProductsPage() {
                       metadata: product.specifications,
                     })
                   }
-                  className="flex items-center gap-2 border border-orvix-border-crimson bg-orvix-panel px-4 py-2 font-mono text-xs uppercase tracking-wider text-white hover:border-orvix-crimson-bright hover:bg-orvix-crimson transition-all"
+                  className="flex items-center gap-2 border border-orvix-border-crimson bg-orvix-panel px-4 py-2 font-mono text-xs uppercase tracking-wider text-black hover:border-orvix-crimson-bright hover:bg-orvix-crimson transition-all"
                 >
                   <ShoppingCart className="h-3.5 w-3.5" />
                   <span>Add to Order</span>

@@ -193,11 +193,11 @@ export default function FilamentsPage() {
               <div className="mt-5 border border-orvix-border-crimson bg-orvix-panel/80 p-3">
                 <div className="flex justify-between items-baseline font-mono">
                   <span className="text-[10px] text-zinc-400">Standard:</span>
-                  <span className="text-sm font-bold text-white">${item.retail_price.toFixed(2)}</span>
+                  <span className="text-sm font-bold text-white">Rs.{item.retail_price.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between items-baseline font-mono mt-1">
                   <span className="text-[10px] text-orvix-crimson-bright font-semibold">B2B Volume (5+):</span>
-                  <span className="text-base font-bold text-orvix-crimson-bright">${item.wholesale_price.toFixed(2)}</span>
+                  <span className="text-base font-bold text-orvix-crimson-bright">Rs.{item.wholesale_price.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -220,7 +220,7 @@ export default function FilamentsPage() {
                   },
                 })
               }
-              className="mt-6 flex w-full items-center justify-center gap-2 border border-orvix-border bg-orvix-panel py-2.5 font-mono text-xs uppercase tracking-wider text-white hover:border-orvix-crimson-bright hover:bg-orvix-crimson transition-all"
+              className="mt-6 flex w-full items-center justify-center gap-2 border border-orvix-border bg-orvix-panel py-2.5 font-mono text-xs uppercase tracking-wider text-black hover:border-orvix-crimson-bright hover:bg-orvix-crimson transition-all"
             >
               <ShoppingCart className="h-3.5 w-3.5" />
               <span>Add Spool to Order</span>

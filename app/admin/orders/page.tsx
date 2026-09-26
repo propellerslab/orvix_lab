@@ -546,7 +546,7 @@ _Please reply to this transmission to authorize G-code generation and reserve pr
                       <span className="font-mono text-[10px] text-zinc-400 uppercase">
                         {new Date(ord.created_at).toLocaleDateString()} &bull; {ord.order_items?.length || 0} ITEMS
                       </span>
-                      <span className="font-mono text-[9px] uppercase px-2 py-0.5 border border-zinc-200 bg-white font-bold text-[#002339]">
+                      <span className="font-mono text-[9px] uppercase px-2 py-0.5 border border-zinc-200 bg-white font-bold text-orvix-navy">
                         {ord.status.replace(/_/g, ' ')}
                       </span>
                     </div>

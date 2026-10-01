@@ -12,6 +12,7 @@ import {
   Users,
   LogOut,
   Sliders,
+  FileText,
   ExternalLink,
 } from 'lucide-react';
 import { useAuth } from '@/components/providers/auth-provider';
@@ -19,6 +20,7 @@ import { useAuth } from '@/components/providers/auth-provider';
 const NAV_LINKS = [
   { href: '/admin', label: 'Overview', icon: LayoutDashboard },
   { href: '/admin/orders', label: 'Order Pipeline', icon: ClipboardList },
+  { href: '/admin/invoices', label: 'Invoice Studio', icon: FileText },
   { href: '/admin/catalog', label: 'Catalog & Inventory', icon: Layers },
   { href: '/admin/marketing', label: 'Banners & Offers', icon: Tag },
   { href: '/admin/customers', label: 'Client Accounts', icon: Users },
